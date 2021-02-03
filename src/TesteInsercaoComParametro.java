@@ -13,8 +13,9 @@ public class TesteInsercaoComParametro {
 		String nome = "Mouse";
 		String descricao = "Razer Abyssus";
 		
-		/* prepareStatement é um método que consegue tratar o comando SQL de forma a evitar
-		 * erros do usuário, assim como evitar SQL injections */
+		/* O prepareStatement é um método que consegue tratar o comando SQL de forma a evitar
+		 * erros do usuário, assim como evitar SQL injections.
+		 * A consulta neste método é compilada no banco de dados */
 		PreparedStatement stm = conn.prepareStatement(
 				"INSERT INTO PRODUTO(nome, descricao) VALUES(?, ?)",
 				Statement.RETURN_GENERATED_KEYS);

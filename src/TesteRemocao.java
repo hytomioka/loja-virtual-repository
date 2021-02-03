@@ -1,4 +1,5 @@
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -9,10 +10,18 @@ public class TesteRemocao {
 		ConnectionFactory connectionFactory = new ConnectionFactory();
 		Connection conn = connectionFactory.createConnection();
 		
+		/*
 		Statement stm = conn.createStatement();
 		
 		stm.execute("DELETE FROM PRODUTO WHERE ID > 2");
-		Integer numLinhasRemovidas = stm.getUpdateCount();
+		*/
+		
+		PreparedStatement pstm = conn.prepareStatement("DELETE FROM PRODUTO WHERE ID > ?");
+		
+		pstm.setInt(1, 2);
+		pstm.execute();
+
+		Integer numLinhasRemovidas = pstm.getUpdateCount();
 		
 		System.out.println("Numero total de linhas removidas: " + numLinhasRemovidas);
 
