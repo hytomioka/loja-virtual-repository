@@ -22,6 +22,8 @@ public class TesteRemocao {
 
 		Integer numLinhasRemovidas = pstm.getUpdateCount();
 		
+		pstm.close();
+		
 		System.out.println("Numero total de linhas removidas: " + numLinhasRemovidas);
 
 	}

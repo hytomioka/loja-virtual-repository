@@ -35,6 +35,7 @@ public class TesteListagem {
 			System.out.println(descricao);
 		}
 		
+		pstm.close();
 		conn.close();
 
 	}
