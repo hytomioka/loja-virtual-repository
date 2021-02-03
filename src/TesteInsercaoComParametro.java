@@ -48,11 +48,11 @@ public class TesteInsercaoComParametro {
 		pstm.setString(1, nome);
 		pstm.setString(2, descricao);
 
-//		/* forçando erro
+		/* forçando erro
 		if (nome.equals("Teclado")) {
 			throw new RuntimeException("Não foi possivel adicionar o produto.");
 		}
-//		*/
+		*/
 
 		pstm.execute();
 		
