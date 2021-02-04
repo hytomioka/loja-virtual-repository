@@ -1,7 +1,6 @@
 package com.tomioka.jdbc.teste;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Iterator;
 import java.util.List;
 
 import com.tomioka.jdbc.ConnectionFactory;
@@ -17,13 +16,17 @@ public class TesteListagem {
 		try (Connection conn = connectionFactory.createConnection()) {
 			
 			ProdutoDAO prodDao = new ProdutoDAO(conn);
-			List<Produto> lista = prodDao.list();
+			List<Produto> listaProduto = prodDao.list();
 			
-			Iterator<Produto> it = lista.iterator();
-			while (it.hasNext()) {
-				Produto p = it.next();
-				System.out.println(p);
-			}
+//			Iterator<Produto> it = listaProduto.iterator();
+//			while (it.hasNext()) {
+//				Produto p = it.next();
+//				System.out.println(p);
+//			}
+			
+			// Iteração da lista sem utilizar o Iterator
+			listaProduto.stream().forEach(lp -> System.out.println(lp));
+			
 
 			/*
 			 * Query a partir do execute

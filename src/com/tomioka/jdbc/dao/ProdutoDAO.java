@@ -55,25 +55,28 @@ public class ProdutoDAO {
 	
 	public List<Produto> list() throws SQLException {
 		
-		List<Produto> list = new ArrayList<>();
+		List<Produto> listProduto = new ArrayList<>();
 		
 		conn.setAutoCommit(false);
 		String sql = "SELECT * FROM PRODUTO";
 		try (PreparedStatement pstm = conn.prepareStatement(sql)) {
 			pstm.execute();
+			conn.commit();
 			
 			try (ResultSet rs = pstm.getResultSet()) {
 				
 				while (rs.next()) {
-					Produto prod = new Produto();
-					prod.setId(rs.getInt("id"));
-					prod.setNome(rs.getString("nome"));
-					prod.setDescricao(rs.getString("descricao"));
-					list.add(prod);
+					Produto prod = new Produto(rs.getInt("id"), rs.getString("nome"),
+							rs.getString("descricao"), rs.getInt("categoria_id"));
+					listProduto.add(prod);
 				}
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			conn.rollback();
+			System.out.println("ROLLBACK executado.");
 		}
-		return list;
+		return listProduto;
 	}
 
 }
