@@ -1,8 +1,11 @@
+package com.tomioka.jdbc.teste;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import com.tomioka.jdbc.ConnectionFactory;
 
 public class TesteInsercaoComParametro {
 

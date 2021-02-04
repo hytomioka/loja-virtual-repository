@@ -1,7 +1,10 @@
+package com.tomioka.jdbc.teste;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import com.tomioka.jdbc.ConnectionFactory;
 
 public class TesteInsercao {
 

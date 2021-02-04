@@ -1,5 +1,8 @@
+package com.tomioka.jdbc.teste;
 import java.sql.Connection;
 import java.sql.SQLException;
+
+import com.tomioka.jdbc.ConnectionFactory;
 
 public class TesteConexao {
 

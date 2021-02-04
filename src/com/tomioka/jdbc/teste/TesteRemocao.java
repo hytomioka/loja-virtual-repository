@@ -1,6 +1,9 @@
+package com.tomioka.jdbc.teste;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import com.tomioka.jdbc.ConnectionFactory;
 
 public class TesteRemocao {
 

@@ -1,3 +1,4 @@
+package com.tomioka.jdbc;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -7,6 +8,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 /* 
  * Classe destinada a criação de uma conexao
+ * Link c3p0: https://www.mchange.com/projects/c3p0/
  * Atualização (03-02-21):
  * Implementação de uma Pool de conexões (c3p0), juntamente com o DataSource.
  * Uma pool de conexões possibilita a abertura de multiplas conexões com o banco de dados,
@@ -26,6 +28,7 @@ public class ConnectionFactory {
 		// recomendação de MinPoolSize <= 3
 		cpds.setMinPoolSize(3);
 		cpds.setMaxPoolSize(10);
+		
 
 		this.dataSource = cpds;
 	}
