@@ -28,13 +28,14 @@ public class ProdutoDAO {
 	public void save(Produto prod) throws SQLException {
 
 		conn.setAutoCommit(false);
-		String sql = "INSERT INTO PRODUTO(nome, descricao) VALUES(?, ?)";
+		String sql = "INSERT INTO PRODUTO(nome, descricao, categoria_id) VALUES(?, ?, ?)";
 
 		try (PreparedStatement pstm = conn.prepareStatement(sql, 
 				Statement.RETURN_GENERATED_KEYS)) {
 
 			pstm.setString(1, prod.getNome());
 			pstm.setString(2, prod.getDescricao());
+			pstm.setInt(3, prod.getCategoriaId());
 
 			pstm.execute();
 

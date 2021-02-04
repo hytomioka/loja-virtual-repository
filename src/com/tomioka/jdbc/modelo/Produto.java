@@ -15,6 +15,12 @@ public class Produto {
 		this.descricao = descricao;
 	}
 	
+	public Produto(Integer id, String nome, String descricao) {
+		this.id = id;
+		this.nome = nome;
+		this.descricao = descricao;
+	}
+	
 	public Produto(Integer id, String nome, String descricao, Integer categoriaId) {
 		this.id = id;
 		this.nome = nome;
@@ -44,6 +50,14 @@ public class Produto {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Integer getCategoriaId() {
+		return categoriaId;
+	}
+
+	public void setCategoriaId(Integer categoriaId) {
+		this.categoriaId = categoriaId;
 	}
 
 	@Override

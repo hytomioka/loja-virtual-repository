@@ -16,17 +16,13 @@ public class TesteListagemCategoria {
 		try (Connection conn = new ConnectionFactory().createConnection()) {
 			
 			CategoriaDAO catDto = new CategoriaDAO(conn);
-			List<Categoria> listaCategoria = catDto.list();
+			List<Categoria> listaCategoria = catDto.listCatProd();
 			
 			listaCategoria.stream().forEach(lc -> {
 				System.out.println("Categoria: " + lc.getNome());
 				// listar todos os produtos vinlados a uma categoria
-				try {
-					for (Produto p : new CategoriaDAO(conn).search(lc)) {
-						System.out.println(p.getNome());
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
+				for (Produto p : lc.getProdCategoria()) {
+					System.out.println(p.getNome());
 				}
 			});
 		}

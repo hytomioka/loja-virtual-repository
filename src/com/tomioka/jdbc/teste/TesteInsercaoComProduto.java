@@ -20,7 +20,8 @@ public class TesteInsercaoComProduto {
 
 		try (Connection conn = new ConnectionFactory().createConnection()) {
 			ProdutoDAO prodDao = new ProdutoDAO(conn);
-			Produto prod = new Produto("Geladeria", "Brastemp");
+			Produto prod = new Produto("Fogão", "Brastemp");
+			prod.setCategoriaId(2);
 			prodDao.save(prod);
 		}
 
